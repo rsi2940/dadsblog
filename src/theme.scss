@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ngBlog-app-primary: mat-palette($mat-deep-orange, 500);
+$ngBlog-app-accent: mat-palette($mat-deep-orange, A200);
+
+// The warn palette is optional (defaults to lime).
+$ngBlog-app-warn: mat-palette($mat-brown, A200);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$ngBlog-app-theme: mat-light-theme(
+  $ngBlog-app-primary,
+  $ngBlog-app-accent,
+  $ngBlog-app-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($ngBlog-app-theme);
