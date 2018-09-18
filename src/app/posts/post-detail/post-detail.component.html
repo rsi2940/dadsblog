@@ -1,0 +1,39 @@
+<section>
+  <div class="wrapper"
+       *ngIf="post">
+    <mat-card class="card">
+      <mat-card-header class="header">
+        <mat-card-title>
+          <h1><span>{{post.title}}</span></h1>
+          <h4><small *ngIf="post.author">{{post.author}} &bull; </small>
+            <small>{{post.published.toDate() | date}}</small></h4>
+        </mat-card-title>
+
+      </mat-card-header>
+      <hr />
+      <mat-card-content>
+        <div class="content">
+          <p>
+            {{post.content}}
+          </p>
+        </div>
+      </mat-card-content>
+      <ng-container *ngIf="auth.user | async as user">
+        <mat-card-actions align="end"
+                          *ngIf="user.uid === post.authorId">
+          <button mat-icon-button
+                  color="accent"
+                  (click)="editing=true"
+                  title="समपादन">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button
+                  color="warn"
+                  title="मेटाउनु">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </ng-container>
+    </mat-card>
+  </div>
+</section>

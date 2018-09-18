@@ -1,0 +1,19 @@
+<section>
+  <div class="wrapper"
+       *ngFor="let post of posts$ | async">
+    <mat-card class="card"
+              routerLink="{{post.id}}">
+      <mat-card-header class="header">
+        <mat-card-title>
+          <h1><span>{{post.title}}</span></h1>
+        </mat-card-title>
+
+      </mat-card-header>
+
+      <mat-card-content>
+        <h4><small *ngIf="post.author">{{post.author}} &bull; </small> <small>{{post.published.toDate() | date}}</small></h4>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</section>

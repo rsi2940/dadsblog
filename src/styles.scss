@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+$card-bg-color: #dddddd;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.507);
+}
+mat-card-header.header > div.mat-card-header-text {
+  margin: 0 auto;
+  // color: #ffffff;
+}
+.mat-card {
+  background: $card-bg-color;
+  box-shadow: $card-bg-color 5px 3px 3px;
+  position: initial;
+}

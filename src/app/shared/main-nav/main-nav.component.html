@@ -1,0 +1,78 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer
+               class="sidenav"
+               [ngClass]="{hidden: !(isHandset$ | async)}"
+               fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary"
+                 (click)="drawer.toggle()"
+                 class="toolbar"
+                 routerLink="/blog">गृहपृष्ठ</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item
+         (click)="drawer.toggle()">Link 1</a>
+      <a mat-list-item
+         (click)="drawer.toggle()">Link 2</a>
+      <a mat-list-item
+         (click)="drawer.toggle()">Link 3</a>
+      <a (click)="drawer.toggle()"
+         *ngIf="auth.user | async as user"
+         class="nav-button button1">
+        <button mat-raised-button
+                *ngIf="!(user.allowWrite); else showMember"> {{user.displayName | uppercase}}</button> </a>
+      <a (click)="drawer.toggle()"
+         *ngIf="auth.user | async as user; else showLoginSidebar"
+         class="nav-button button2">
+        <button mat-raised-button
+                (click)="auth.logout()">लग आउट</button>
+      </a>
+      <ng-template #showMember>
+        <button mat-raised-button
+                color="accent"
+                routerLink="/dashboard">नयाँ स्तम्भ</button></ng-template>
+      <ng-template #showLoginSidebar>
+        <a (click)="drawer.toggle()"
+           class="nav-button button2">
+          <button mat-raised-button
+                  (click)="auth.login()">लगइन</button></a></ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu
+        </mat-icon>
+      </button><span class="space"
+            [ngClass]="{hidden: !(isHandset$ | async)}"></span>
+      <span routerLink="/blog"
+            class="title">स्वामी केशव अत्रि</span>
+      <span class="space"></span>
+      <mat-nav-list class="header-nav-list"
+                    [ngClass]="{hidden: (isHandset$ | async)}">
+        <a>link 1</a>
+        <a>Link 2</a>
+        <a>Link 3</a>
+        <a *ngIf="auth.user | async as user; else showLogin">
+          <button mat-raised-button
+                  color="accent"
+                  routerLink="/dashboard">नयाँ स्तम्भ</button></a>
+
+        <a *ngIf="auth.user | async as user; else showLogin">
+          <button mat-raised-button
+                  (click)="auth.logout()">लग आउट</button>
+        </a>
+        <ng-template #showLogin>
+          <button mat-raised-button
+                  (click)="auth.login()">लगइन</button></ng-template>
+      </mat-nav-list>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

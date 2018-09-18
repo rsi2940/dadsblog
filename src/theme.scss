@@ -2,11 +2,11 @@
 
 @include mat-core();
 
-$ngBlog-app-primary: mat-palette($mat-deep-orange, 500);
-$ngBlog-app-accent: mat-palette($mat-deep-orange, A200);
+$ngBlog-app-primary: mat-palette($mat-blue, 700);
+$ngBlog-app-accent: mat-palette($mat-teal, 700, 800, 900);
 
 // The warn palette is optional (defaults to lime).
-$ngBlog-app-warn: mat-palette($mat-brown, A200);
+$ngBlog-app-warn: mat-palette($mat-brown, 500, 300);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $ngBlog-app-theme: mat-light-theme(
