@@ -14,7 +14,13 @@
       <mat-card-content>
         <div class="content">
           <p>
-            {{post.content}}
+            {{post.content.para1}}
+          </p>
+          <p *ngIf="post.content.para2">
+            {{post.content.para2}}
+          </p>
+          <p *ngIf="post.content.para3">
+            {{post.content.para3}}
           </p>
         </div>
       </mat-card-content>

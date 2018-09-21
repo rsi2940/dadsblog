@@ -6,8 +6,10 @@ import { PostDashboardComponent } from './post-dashboard/post-dashboard.componen
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { AuthGuard } from '../core/auth.guard';
+import { BioComponent } from './bio/bio.component';
 
 const routes: Routes = [
+  { path: '', component: BioComponent },
   { path: 'blog', component: PostListComponent },
   { path: 'blog/:id', component: PostDetailComponent },
   {
@@ -15,7 +17,7 @@ const routes: Routes = [
     component: PostDashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: '', redirectTo: '/blog', pathMatch: 'full' },
+  // { path: '', redirectTo: '/blog', pathMatch: 'full' },
   { path: '**', redirectTo: '/blog' }
 ];
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
   declarations: [
     PostDashboardComponent,
     PostDetailComponent,
-    PostListComponent
+    PostListComponent,
+    BioComponent
   ],
   providers: [PostService, AuthGuard]
 })

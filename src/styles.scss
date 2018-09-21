@@ -18,3 +18,10 @@ mat-card-header.header > div.mat-card-header-text {
   box-shadow: $card-bg-color 5px 3px 3px;
   position: initial;
 }
+.mat-menu-panel {
+  width: 200px;
+  margin-top: 2.5em;
+}
+.mat-menu-content {
+  background: rgba($color: #1976d2, $alpha: 0.2);
+}
