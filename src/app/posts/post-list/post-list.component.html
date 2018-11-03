@@ -5,7 +5,7 @@
               routerLink="{{post.id}}">
       <mat-card-header class="header">
         <mat-card-title>
-          <h1><span>{{(post.title.length)>50 ? (post.title | slice:0:50)+'...': post.title}}</span></h1>
+          <h1><span>{{(post.title.length)>25 ? (post.title | slice:0:25)+'...': post.title}}</span></h1>
         </mat-card-title>
       </mat-card-header>
 
@@ -13,7 +13,7 @@
         <h4><small *ngIf="post.author">{{post.author}}</small><br><small>{{post.published.toDate() | date}}</small></h4>
       </mat-card-content>
       <mat-card-content class="para1">
-        <p *ngIf="post.content.para1">{{(post.content.para1.length)>200 ? (post.content.para1 | slice:0:200)+'...':
+        <p *ngIf="post.content.para1">{{(post.content.para1.length)>150 ? (post.content.para1 | slice:0:150)+'...':
           post.content.para1}}</p>
       </mat-card-content>
     </mat-card>

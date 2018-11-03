@@ -12,11 +12,26 @@ import { map } from 'rxjs/operators';
 })
 export class PostService {
   postCollection: AngularFirestoreCollection<Post>;
+  latest3PostCollection: AngularFirestoreCollection<Post>;
   postDoc: AngularFirestoreDocument<Post>;
 
   constructor(private afs: AngularFirestore) {
     this.postCollection = this.afs.collection('posts', ref =>
       ref.orderBy('published', 'desc')
+    );
+    this.latest3PostCollection = this.afs.collection('posts', ref =>
+      ref.orderBy('published', 'desc').limit(3)
+    );
+  }
+  getLatest3Posts() {
+    return this.latest3PostCollection.snapshotChanges().pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data() as Post;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      )
     );
   }
   getPosts() {

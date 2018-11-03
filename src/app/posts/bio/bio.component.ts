@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
+import { Post } from '../post';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-bio',
@@ -6,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bio.component.scss']
 })
 export class BioComponent implements OnInit {
-
-  constructor() { }
+  posts$: Observable<Post[]>;
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
+    this.posts$ = this.postService.getLatest3Posts();
+    // console.log(this);
   }
-
 }
