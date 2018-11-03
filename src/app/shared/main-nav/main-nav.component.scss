@@ -10,9 +10,11 @@
   position: sticky;
   top: 0;
 }
+
 .hidden {
   display: none;
 }
+
 .title {
   cursor: pointer;
   @media screen and (min-width: 48em) {
@@ -20,6 +22,7 @@
   }
   // font-weight: bold;
 }
+
 .title:focus,
 .mat-toolbar.toolbar {
   outline: none;
@@ -49,4 +52,12 @@
   padding: 0 0.2em;
   cursor: pointer;
   // background: rgba($color: #000000, $alpha: 0.5);
+}
+.collection i {
+  display: inline-block;
+  padding-left: 0.25em;
+  margin-top: -0.25em;
+}
+mat-nav-list a:hover {
+  color: #33cc99;
 }

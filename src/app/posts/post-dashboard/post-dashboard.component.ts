@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from '../../core/auth.service';
+import { AuthService, User } from '../../core/auth.service';
 import { PostService } from '../post.service';
 
 @Component({
@@ -9,31 +9,36 @@ import { PostService } from '../post.service';
   styleUrls: ['./post-dashboard.component.scss']
 })
 export class PostDashboardComponent implements OnInit {
+  public currentUser = null;
   title: string;
   image: string = null;
   content: {
-    para1: string;
-    para2: string;
-    para3: string;
+    para1: '';
+    para2: '';
+    para3: '';
   };
-  para1: string;
-  para2: string;
-  para3: string;
+  para1 = '';
+  para2 = '';
+  para3 = '';
   buttonText = 'लेख शुरक्षित गर्नुहोस्';
   showPara2 = false;
   showPara3 = false;
   constructor(private auth: AuthService, private postService: PostService) {
-    // console.log(this.auth.authState.uid);
-    // console.log(this.auth.currentUserId);
-    // console.log(this.cardContentElement);
+    // console.log( this.auth.authState.displayName);
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.find();
+  }
+  async find() {
+    await this.auth.user.subscribe(value => (this.currentUser = value));
+  }
   createPost() {
+    console.log(this.currentUser);
+
     const data = {
-      author: this.auth.authState.displayName || this.auth.authState.email,
-      authorId: this.auth.authState.uid,
+      author: this.currentUser.displayName || this.currentUser.email,
+      authorId: this.currentUser.uid,
       content: {
         para1: this.para1,
         para2: this.para2,

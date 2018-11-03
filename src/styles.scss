@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 $card-bg-color: #dddddd;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;
@@ -9,19 +13,31 @@ body {
   margin: 0;
   background-color: rgba(255, 255, 255, 0.507);
 }
+// material card
 mat-card-header.header > div.mat-card-header-text {
   margin: 0 auto;
   // color: #ffffff;
 }
+
 .mat-card {
   background: $card-bg-color;
   box-shadow: $card-bg-color 5px 3px 3px;
   position: initial;
 }
+
+// material menu panel
 .mat-menu-panel {
   width: 200px;
   margin-top: 2.5em;
 }
+
+// material dropdown menu
 .mat-menu-content {
-  background: rgba($color: #1976d2, $alpha: 0.2);
+  background: rgba($color: #33cc99, $alpha: 0.2);
+  .mat-menu-item {
+    color: #ffffff;
+  }
+  .mat-menu-item:hover {
+    color: #33cc99;
+  }
 }
