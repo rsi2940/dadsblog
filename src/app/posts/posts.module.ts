@@ -7,10 +7,12 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { AuthGuard } from '../core/auth.guard';
 import { BioComponent } from './bio/bio.component';
+import { VideosComponent } from './videos/videos.component';
 
 const routes: Routes = [
   { path: '', component: BioComponent },
   { path: 'blog', component: PostListComponent },
+  { path: 'videos', component: VideosComponent },
   { path: 'blog/:id', component: PostDetailComponent },
   {
     path: 'dashboard',
@@ -26,7 +28,8 @@ const routes: Routes = [
     PostDashboardComponent,
     PostDetailComponent,
     PostListComponent,
-    BioComponent
+    BioComponent,
+    VideosComponent
   ],
   providers: [PostService, AuthGuard]
 })

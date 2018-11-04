@@ -11,6 +11,8 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
+import { FooterComponent } from './shared/footer/footer.component';
+
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { PostsModule } from './posts/posts.module';
@@ -20,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

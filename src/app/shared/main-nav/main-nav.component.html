@@ -17,7 +17,8 @@
       <a mat-list-item
          [matMenuTriggerFor]="menu1">संग्रह</a>
       <mat-menu #menu1="matMenu">
-        <a mat-menu-item>Item 1</a>
+        <a mat-menu-item
+           routerLink="/videos">भिडियोहरु</a>
         <a mat-menu-item>Item 2</a>
       </mat-menu>
       <a mat-list-item
@@ -70,7 +71,8 @@
             arrow_drop_down
           </i></a>
         <mat-menu #menu="matMenu">
-          <a mat-menu-item>Item 1</a>
+          <a mat-menu-item
+             routerLink="/videos">भिडियोहरु</a>
           <a mat-menu-item>Item 2</a>
         </mat-menu>
         <a mat-button>प्रतिक्रिया</a>
