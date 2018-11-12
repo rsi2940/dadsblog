@@ -16,8 +16,9 @@
   display: none;
 }
 
-.title {
+.title a {
   cursor: pointer;
+  color: white;
   @media screen and (min-width: 48em) {
     font-size: 1.2em;
   }
@@ -25,10 +26,11 @@
 }
 
 .title:focus,
-.mat-toolbar.toolbar {
+.mat-toolbar.toolbar a {
   outline: none;
   border: 0;
   cursor: pointer;
+  color: white;
 }
 .space {
   flex: 1 1 auto;
@@ -59,6 +61,8 @@
   padding-left: 0.25em;
   margin-top: -0.25em;
 }
-mat-nav-list a:hover {
-  color: #33cc99;
+mat-nav-list a {
+  :hover {
+    color: #33cc99;
+  }
 }

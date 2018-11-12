@@ -34,7 +34,7 @@ export class PostDashboardComponent implements OnInit {
     await this.auth.user.subscribe(value => (this.currentUser = value));
   }
   createPost() {
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
 
     const data = {
       author: this.currentUser.displayName || this.currentUser.email,

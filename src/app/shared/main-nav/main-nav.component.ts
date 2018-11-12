@@ -15,6 +15,8 @@ import { map } from 'rxjs/operators';
 import { AuthService, User } from '../../core/auth.service';
 import { callNgModuleLifecycle } from '@angular/core/src/view/ng_module';
 import { pipe } from '@angular/core/src/render3/pipe';
+import { Router } from '@angular/router';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-main-nav',
@@ -27,8 +29,33 @@ export class MainNavComponent implements OnInit {
     .pipe(map(result => result.matches));
 
   constructor(
+    private router: Router,
     public auth: AuthService,
     private breakpointObserver: BreakpointObserver
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    // this.scrollMe('feedback');
+  }
+  async scrollMeFeedback(element = 'feedback') {
+    const elementId = document.getElementById(element);
+    if (elementId) {
+      elementId.scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else {
+      await this.router.navigate(['']);
+      await setTimeout(this.scrollMeFeedback, 500);
+      // this.scrollMeFeedback(element);
+    }
+  }
+  async scrollMeHome(element = 'home') {
+    const elementId = document.getElementById(element);
+    if (elementId) {
+      elementId.scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else {
+      await this.router.navigate(['']);
+    }
+  }
 }

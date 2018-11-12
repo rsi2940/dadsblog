@@ -1,3 +1,4 @@
+<div id="home"></div>
 <section class="banner">
 
   <div class="bannerLeft">
@@ -38,7 +39,7 @@
     <div class="latestPost-button">
       <button mat-raised-button
               color="accent"
-              routerLink="/blog">थप स्तम्भहरु</button>
+              [routerLink]="['/blog']">थप स्तम्भहरु</button>
     </div>
   </section>
 
@@ -61,7 +62,11 @@
     </div>
     <div class="videoTitle">
       <button mat-raised-button
-              color="accent">थप भिडियोहरु</button>
+              color="accent"
+              [routerLink]="['/videos']">थप भिडियोहरु</button>
+
     </div>
+
   </section>
 </main>
+<app-feedback></app-feedback>

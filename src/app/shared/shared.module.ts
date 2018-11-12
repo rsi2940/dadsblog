@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -25,7 +26,8 @@ import {
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
@@ -33,7 +35,8 @@ import {
     MaterialModule,
     // NavbarComponent,
     MainNavComponent,
-    RouterModule
+    RouterModule,
+    MatFormFieldModule
   ],
   declarations: [MainNavComponent]
   // declarations: [NavbarComponent]

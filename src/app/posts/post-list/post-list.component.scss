@@ -1,3 +1,18 @@
+.banner {
+  min-height: 15em;
+  background: url(../../../assets/images/radhaKrishnaGopal.jpg) top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  span {
+    color: white;
+    text-shadow: 0 0 15px black;
+  }
+}
+.postsTitle {
+  padding: 6em 1.5em 1.5em;
+  text-align: center;
+  font-size: 2.1em;
+}
 section {
   display: grid;
   grid-gap: 25px;
@@ -43,7 +58,7 @@ h4 {
 }
 .para1 {
   padding-top: 1em;
-  min-height: fill-available;
+  min-height: stretch;
 }
 .header {
   max-height: 8em;

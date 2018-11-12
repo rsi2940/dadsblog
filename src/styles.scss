@@ -5,13 +5,18 @@ $card-bg-color: #dddddd;
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
+  scroll-behavior: smooth;
   height: 100%;
 }
 body {
   margin: 0;
   background-color: rgba(255, 255, 255, 0.507);
+}
+a {
+  text-decoration: none;
 }
 // material card
 mat-card-header.header > div.mat-card-header-text {
