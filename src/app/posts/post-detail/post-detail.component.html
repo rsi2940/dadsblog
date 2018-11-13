@@ -1,5 +1,6 @@
 <ng-container *ngIf="post">
-  <section [hidden]="editing">
+  <section class="postDetail"
+           [hidden]="editing">
     <div class="wrapper">
       <mat-card class="card">
         <mat-card-header class="header">
@@ -45,8 +46,9 @@
     </div>
   </section>
 
-  <section [hidden]="!editing">
-    <div class="container">
+  <section class="postDetail"
+           [hidden]="!editing">
+    <div class="wrapper">
       <mat-card class="card">
         <mat-card-header class="header">
           <mat-card-title>

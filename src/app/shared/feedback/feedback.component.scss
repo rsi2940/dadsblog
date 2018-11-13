@@ -1,8 +1,7 @@
 section.feedback {
   display: grid;
-  min-height: 80vh;
+
   @media screen and (min-width: 48em) {
-    min-height: 90vh;
     // justify-content: center;
     grid-template-columns: 1fr 1fr;
   }
@@ -11,16 +10,17 @@ section.feedback {
   background: url(../../../assets/bgImg/swamiji0.jpg) center center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
   display: none;
   @media screen and (min-width: 48em) {
-    display: flex;
+    display: block;
   }
 }
 .feedbackForm {
   background-color: #f1f1bf;
   display: flex;
   flex-direction: column;
-  padding-top: 1.5em;
+  padding-top: 1em;
   padding-bottom: 3em;
   .feedbackWrapper {
     width: 60%;
@@ -28,7 +28,7 @@ section.feedback {
   }
 }
 .feedbackTitle {
-  padding: 1.5em;
+  padding: 1em;
   padding-bottom: 1em;
   text-align: center;
   font-size: 2.1em;
@@ -71,4 +71,7 @@ mat-form-field {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+mat-error mat-icon:hover {
+  cursor: pointer;
 }

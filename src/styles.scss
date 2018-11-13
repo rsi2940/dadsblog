@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import './normalize.scss';
+
 $card-bg-color: #dddddd;
 * {
   margin: 0;
@@ -34,6 +36,7 @@ mat-card-header.header > div.mat-card-header-text {
 .mat-menu-panel {
   width: 200px;
   margin-top: 2.5em;
+  // z-index: 1;
 }
 
 // material dropdown menu
@@ -53,4 +56,8 @@ button.mat-raised-button {
   @media screen and (min-width: 40em) {
     font-size: 16px;
   }
+}
+// side-nav
+mat-sidenav.sidenav {
+  background: #7e1906;
 }

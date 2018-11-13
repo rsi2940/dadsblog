@@ -4,6 +4,7 @@
 
 .sidenav {
   width: 200px;
+  overflow: hidden;
 }
 
 .mat-toolbar.mat-primary {
@@ -26,6 +27,7 @@
 }
 
 .title:focus,
+.sidebar-nav-list a,
 .mat-toolbar.toolbar a {
   outline: none;
   border: 0;
@@ -61,8 +63,23 @@
   padding-left: 0.25em;
   margin-top: -0.25em;
 }
-mat-nav-list a {
-  :hover {
+mat-nav-list.header-nav-list a:hover {
+  color: #33cc99;
+}
+mat-nav-list.sidebar-nav-list {
+  transition: all 2s ease-in-out;
+  [mat-list-item]:hover {
     color: #33cc99;
+    position: relative;
+    left: 2%;
   }
+}
+// routerlink active style
+.router-link-active {
+  color: #33cc99;
+}
+mat-nav-list.sidebar-nav-list .router-link-active {
+  color: #33cc99;
+  position: relative;
+  left: 2%;
 }

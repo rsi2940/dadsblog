@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   BreakpointObserver,
   Breakpoints,
@@ -17,6 +17,7 @@ import { callNgModuleLifecycle } from '@angular/core/src/view/ng_module';
 import { pipe } from '@angular/core/src/render3/pipe';
 import { Router } from '@angular/router';
 import { error } from '@angular/compiler/src/util';
+import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-main-nav',
@@ -27,6 +28,8 @@ export class MainNavComponent implements OnInit {
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
+  @ViewChild(MatMenuTrigger)
+  trigger: MatMenuTrigger;
 
   constructor(
     private router: Router,
@@ -57,5 +60,13 @@ export class MainNavComponent implements OnInit {
     } else {
       await this.router.navigate(['']);
     }
+  }
+  openMyMenu() {
+    console.log('on');
+    this.trigger.openMenu();
+  }
+  closeMyMenu() {
+    console.log('off');
+    this.trigger.closeMenu();
   }
 }

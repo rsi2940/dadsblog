@@ -20,19 +20,22 @@
       <mat-form-field>
         <input matInput
                placeholder="इमेल"
-               [formControl]="email"
-               required>
+               [formControl]="email">
         <mat-error *ngIf="email.invalid">{{getEmailErrorText()}}</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput
                minlength="10"
-               maxlength="10"
+               maxlength="15"
                placeholder="फोन नम्वर"
-               [formControl]="phone">
-        <mat-error *ngIf="phone.invalid">{{getPhoneErrorText()}}</mat-error>
+               [formControl]="phone"
+               required>
+        <mat-error *ngIf="phone.invalid">{{getPhoneErrorText()}}
+          <mat-icon matTooltip="मान्य फर्म्याट : 555-555-5555, +1 555-555-5555, +15555555555 अथवा 5555555555"
+                    matTooltipPosition="after">info</mat-icon>
+        </mat-error>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field [ngClass]="{giveMarginTop : phone.invalid}">
         <textarea matInput
                   placeholder="प्रतिक्रिया"
                   [formControl]="message"

@@ -42,8 +42,8 @@ export class PostDetailComponent implements OnInit {
   }
   updatePost() {
     const formData = {
+      title: this.post.title,
       content: {
-        title: this.post.title,
         para1: this.post.content.para1,
         para2: this.post.content.para2,
         para3: this.post.content.para3
