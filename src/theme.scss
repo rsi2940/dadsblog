@@ -6,7 +6,7 @@ $ngBlog-app-primary: mat-palette($mat-my-color, 600, 50, 700);
 $ngBlog-app-accent: mat-palette($mat-accent-color, A700, 800, 900);
 
 // The warn palette is optional (defaults to lime).
-$ngBlog-app-warn: mat-palette($mat-my-color, 100);
+$ngBlog-app-warn: mat-palette($mat-my-color, 800);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $ngBlog-app-theme: mat-light-theme(

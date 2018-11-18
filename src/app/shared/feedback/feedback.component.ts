@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, MinLengthValidator } from '@angular/forms';
 import { FeedbackService } from '../feedback.service';
 import { AuthService } from 'src/app/core/auth.service';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-feedback',
@@ -29,16 +28,16 @@ export class FeedbackComponent implements OnInit {
     return this.phone.hasError('required')
       ? 'यो क्षेत्र अनिवार्य छ !'
       : this.phone.hasError('pattern')
-      ? 'यो फोन नम्वर अमान्य छ !'
-      : // : this.phone.hasError('maxLength(10)')
-      //   ? 'यो फोन नम्वर अमान्य छ !-'
-      //   : this.phone.hasError('minLength(10)')
-      //     ? 'यो फोन नम्वर अमान्य छ !+'
-      this.phone.errors.minlength
-      ? 'फोन नम्वर १० अंकको हुनुपर्ने छ ।' // console.log(this.phone.errors.minlength)
-      : this.phone.errors.maxlength
-      ? 'फोन नम्वर अधिक्तम १३ अंकको हुनुपर्ने छ ।' // console.log(this.phone.errors.maxlength)
-      : '';
+        ? 'यो फोन नम्वर अमान्य छ !'
+        : // : this.phone.hasError('maxLength(10)')
+          //   ? 'यो फोन नम्वर अमान्य छ !-'
+          //   : this.phone.hasError('minLength(10)')
+          //     ? 'यो फोन नम्वर अमान्य छ !+'
+          this.phone.errors.minlength
+          ? 'फोन नम्वर १० अंकको हुनुपर्ने छ ।' // console.log(this.phone.errors.minlength)
+          : this.phone.errors.maxlength
+            ? 'फोन नम्वर अधिक्तम १३ अंकको हुनुपर्ने छ ।' // console.log(this.phone.errors.maxlength)
+            : '';
   }
   getEmailErrorText() {
     return this.email.hasError('email') ? 'यो इमेल अमान्य छ !' : '';
@@ -52,7 +51,6 @@ export class FeedbackComponent implements OnInit {
     return this.message.hasError('required') ? 'यो क्षेत्र अनिवार्य छ !' : '';
   }
   constructor(
-    public snackBar: MatSnackBar,
     private feedbackService: FeedbackService,
     private auth: AuthService
   ) {}
@@ -74,10 +72,7 @@ export class FeedbackComponent implements OnInit {
     this.feedbackService.create(data);
     this.buttonText = '‍‍‍‍‍‍...';
     this.clearForm();
-    setTimeout(() => (this.buttonText = 'पठाउनु होस'), 2500);
-    this.snackBar.open('प्रतिक्रिया शुरक्षित हुँदैछ...', ' ', {
-      duration: 2000
-    });
+    setTimeout(() => (this.buttonText = 'पठाउनु होस'), 3000);
   }
   clearForm() {
     this.email = new FormControl('', [Validators.required, Validators.email]);

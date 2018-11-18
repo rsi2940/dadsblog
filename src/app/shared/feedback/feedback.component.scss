@@ -17,7 +17,7 @@ section.feedback {
   }
 }
 .feedbackForm {
-  background-color: #f2f2f2;
+  background-color: #f1f1bf;
   display: flex;
   flex-direction: column;
   padding-top: 1em;
@@ -33,7 +33,29 @@ section.feedback {
   text-align: center;
   font-size: 2.1em;
 }
+// tel inpput styles
 
+.tel-input-container {
+  display: flex;
+}
+
+.tel-input-element {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.tel-input-spacer {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+:host.floating .tel-input-spacer {
+  opacity: 1;
+}
 mat-form-field {
   margin-bottom: 1.2em;
 }
@@ -49,14 +71,7 @@ mat-form-field {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  button {
-    color: #ebebeb;
-  }
 }
 mat-error mat-icon:hover {
   cursor: pointer;
-}
-// accessibility issue
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgb(0, 0, 0);
 }

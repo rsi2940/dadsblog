@@ -61,4 +61,12 @@ export class MainNavComponent implements OnInit {
       await this.router.navigate(['']);
     }
   }
+  openMyMenu() {
+    console.log('on');
+    this.trigger.openMenu();
+  }
+  closeMyMenu() {
+    console.log('off');
+    this.trigger.closeMenu();
+  }
 }
