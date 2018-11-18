@@ -3,6 +3,7 @@ section {
   width: 100%;
   min-height: 80vh;
   margin: 2em auto;
+  overflow: hidden;
 
   @media screen and (min-width: 48em) {
     width: 90vw;

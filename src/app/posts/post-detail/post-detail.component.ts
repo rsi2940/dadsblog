@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 import { AuthService } from '../../core/auth.service';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
@@ -11,6 +12,8 @@ import { AuthService } from '../../core/auth.service';
 export class PostDetailComponent implements OnInit {
   post: Post;
   editing = false;
+  pageTitle = 'pageTitle';
+  iFrameSrc = '';
 
   //  content: {
   //   para1: '';
@@ -24,21 +27,48 @@ export class PostDetailComponent implements OnInit {
   showPara2 = false;
   showPara3 = false;
   constructor(
+    public meta: Meta,
+    public title: Title,
     private route: ActivatedRoute,
     private router: Router,
     private postService: PostService,
     public auth: AuthService
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.getPost();
-    console.log(this.auth.currentUserId);
+  }
+  ngOnInit() {
+    //    console.log(this.auth.currentUserId);
   }
   getPost() {
     const id = this.route.snapshot.paramMap.get('id');
-    return this.postService
-      .getPostData(id)
-      .subscribe(data => (this.post = data));
+    return this.postService.getPostData(id).subscribe(data => {
+      this.post = data;
+      this.meta.updateTag({
+        property: 'og:url',
+        content: 'my.url'
+      });
+      this.meta.updateTag({
+        property: 'og:type',
+        content: 'article'
+      });
+      this.meta.updateTag({
+        property: 'og:title',
+        content: data.title
+      });
+      this.meta.updateTag({
+        property: 'og:description',
+        content: data.content.para1
+      });
+      this.meta.updateTag({
+        property: 'og:image',
+        content: '../../../assets/images/icon_sriTilak.png'
+      });
+      this.title.setTitle(data.title);
+      this.iFrameSrc =
+        'https://www.facebook.com/plugins/like.php?href=http%3A%2F%2F192.168.0.15%3A4200%2Fblog%2' +
+        data.id +
+        '&width=96&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId';
+    });
   }
   updatePost() {
     const formData = {
@@ -96,4 +126,5 @@ export class PostDetailComponent implements OnInit {
     this.showPara3 = false;
     this.post.content.para3 = '';
   }
+  shareMe() {}
 }
